@@ -1,3 +1,9 @@
+class MathError extends Error {
+  constructor(message) {
+    super(message); // (1)
+    this.name = "MathError"; // (2)
+  }
+}
 let calculateBtn = document.querySelector("#calculate");
 calculateBtn.addEventListener("click", () => {
   let output = document.querySelector("output");
@@ -7,9 +13,10 @@ calculateBtn.addEventListener("click", () => {
   output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
   try {
     if (secondNum == "0" && operator == "/") {
-      throw new Error("You cannot use ");
+      throw new MathError("You cannot use ");
     }
   } catch (error) {
+    alert(error.name);
     alert(error.message + operator + " with " + secondNum);
   } finally {
     // Reset value
