@@ -27,7 +27,6 @@ calculateBtn.addEventListener("click", () => {
 });
 
 let errorBtns = Array.from(document.querySelectorAll("#error-btns > button"));
-
 const consoleLog = errorBtns[0];
 const consoleError = errorBtns[1];
 const consoleDir = errorBtns[2];
@@ -38,7 +37,7 @@ const consoleTable = errorBtns[6];
 const consoleTime = errorBtns[7];
 const consoleTimeEnd = errorBtns[8];
 const consoleTrace = errorBtns[9];
-
+const globalError = errorBtns[10];
 // 0
 consoleLog.addEventListener("click", () => {
   console.log("Console Log");
@@ -60,7 +59,7 @@ consoleGroup.addEventListener("click", () => {
   console.group("Console Group");
 });
 // 5
-consoleGroup.addEventListener("click", () => {
+consoleGroupEnd.addEventListener("click", () => {
   console.groupEnd("Console Group End");
 });
 // 6
@@ -94,3 +93,11 @@ consoleTrace.addEventListener("click", () => {
   };
   first();
 });
+//10
+window.onerror = function () {
+  console.log("This is very broken");
+};
+globalError.addEventListener("click", () => {
+  hello(); // Random broken function
+});
+TrackJS.track("Testing TrackJS!"); // Using Track
