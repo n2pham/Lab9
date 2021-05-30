@@ -1,72 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 9</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 9</title>
 
-  <style>
-    button {
-      margin: 3px;
-    }
+    <style>
+      button {
+        margin: 3px;
+      }
 
-    input[type="number"] {
-      width: 60px;
-    }
+      input[type="number"] {
+        width: 60px;
+      }
 
-    output {
-      border: 1px solid gray;
-      display: block;
-      height: 18px;
-      margin-top: 5px;
-      padding: 5px;
-      width: 240px;
-    }
-  </style>
-</head>
-<body>
-  <fieldset>
-    <legend>Error Calculator</legend>
-    <input type="number" name="first-num" id="first-num" />
-    <select name="operator" id="operator">
-      <option>+</option>
-      <option>-</option>
-      <option>*</option>
-      <option>/</option>
-    </select>
-    <input type="number" name="second-num" id="second-num" />
-    <button id="calculate">Calculate</button>
-    <br />
-    <output></output>
-  </fieldset>
+      output {
+        border: 1px solid gray;
+        display: block;
+        height: 18px;
+        margin-top: 5px;
+        padding: 5px;
+        width: 240px;
+      }
+    </style>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Error Calculator</legend>
+      <input type="number" name="first-num" id="first-num" />
+      <select name="operator" id="operator">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+      </select>
+      <input type="number" name="second-num" id="second-num" />
+      <button id="calculate">Calculate</button>
+      <br />
+      <output></output>
+    </fieldset>
 
-  <section id="error-btns">
-    <button>Console Log Demo</button>
-    <button>Console Error Demo</button>
-    <button>Console Dir</button>
-    <button>Console dirxml</button>
-    <button>Console Group Start</button>
-    <button>Console Group End</button>
-    <button>Console Table</button>
-    <button>Start Timer</button>
-    <button>End Timer</button>
-    <button>Console Trace</button>
-    <button>Trigger a Global Error</button>
-  </section>
+    <section id="error-btns">
+      <button>Console Log Demo</button>
+      <button>Console Error Demo</button>
+      <button>Console Dir</button>
+      <button>Console dirxml</button>
+      <button>Console Group Start</button>
+      <button>Console Group End</button>
+      <button>Console Table</button>
+      <button>Start Timer</button>
+      <button>End Timer</button>
+      <button>Console Trace</button>
+      <button>Trigger a Global Error</button>
+    </section>
 
-  <script>
-    let calculateBtn = document.querySelector('#calculate');
-    calculateBtn.addEventListener('click', () => {
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
-    });
-
-    let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
-    // TODO - Make buttons functional
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
