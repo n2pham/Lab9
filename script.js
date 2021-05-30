@@ -5,6 +5,18 @@ calculateBtn.addEventListener("click", () => {
   let secondNum = document.querySelector("#second-num").value;
   let operator = document.querySelector("#operator").value;
   output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+  try {
+    if (secondNum == "0" && operator == "/") {
+      throw new Error("You cannot use ");
+    }
+  } catch (error) {
+    alert(error.message + operator + " with " + secondNum);
+  } finally {
+    // Reset value
+    document.querySelector("#operator").value = null;
+    document.querySelector("#first-num").value = null;
+    document.querySelector("#second-num").value = null;
+  }
 });
 
 let errorBtns = Array.from(document.querySelectorAll("#error-btns > button"));
